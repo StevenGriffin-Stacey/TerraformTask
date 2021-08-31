@@ -1,4 +1,4 @@
-INSTALL_DIR="${C:\Program Files\Terraform}"
+INSTALL_DIR="${/usr/bin/terraform}"
 URL="https://releases.hashicorp.com/terraform"
 
 VER="$(curl -sL $URL | grep -v beta | grep -Po "_(\d*\.?){3}" | sed 's/_//' | sort -V | tail -1)"
