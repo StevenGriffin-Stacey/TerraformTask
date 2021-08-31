@@ -1,4 +1,5 @@
 INSTALL_DIR="${/usr/bin/terraform}"
+BAK="${/usr/bin/terraform/Backup}"
 URL="https://releases.hashicorp.com/terraform"
 
 VER="$(curl -sL $URL | grep -v beta | grep -Po "_(\d*\.?){3}" | sed 's/_//' | sort -V | tail -1)"
@@ -6,5 +7,6 @@ ZIP="terraform_${VER}_linux_amd64.zip"
 
 echo "* Downloading ${URL}/${VER}/terraform_${VER}_linux_amd64.zip"
 curl -s ${URL}/${VER}/terraform_${VER}_linux_amd64.zip -o ${INSTALL_DIR}/${ZIP}
+curl -s ${URL}/${VER}/terraform_${VER}_linux_amd64.zip -o ${BAK}/${ZIP}
 echo "* Extracting $ZIP into $INSTALL_DIR"
 unzip -o ${INSTALL_DIR}/$ZIP -d $INSTALL_DIR && rm -v ${INSTALL_DIR}/$ZIP
